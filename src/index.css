@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+@keyframes headerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(10px, -12px, 0) scale(1.12);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) rotate(18deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(180%) rotate(18deg);
+    opacity: 0;
+  }
+}
+
+@theme {
+  --color-primary: #303030;
+  --color-brandColor: #11813A;
+  --color-limeGreen: #7AB13A;
+  --color-bodyBg: #f4f5f1;
+  --font-brodaers: "Brodaers", sans-serif;
+  --font-Monoglyphic: "Monoglyphic", sans-serif;
+  --font-MonoglyphicSemiBold: "Monoglyphic-semibold", sans-serif;
+  --font-MonoglyphicRegular: "Monoglyphic-regular", sans-serif;
+  --font-MonoglyphicThin: "Monoglyphic-thin", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-poppinsBold: "PoppinsBold", sans-serif;
+  --font-display: "PoppinsBold", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-heroShadow: 5px 5px 0px 0px rgba(16, 24, 40, 1);
+  --shadow-heroHoverShadow: 0px 0px 0px 0px rgba(16, 24, 40, 1);
+}
+
+@layer base {
+  :root {
+    /* Default theme colors - will be overridden by setThemeColors */
+    --primaryColor: #a6ff33;
+    --formPrimaryColorHover: rgba(166, 255, 51, 0.2);
+    --formTextColor: #303030;
+    --formSecondaryColorHover: rgba(48, 48, 48, 0.7);
+    --formTextOnPrimaryColor: #303030;
+    --scrollbar-track: #edf3eb;
+    --scrollbar-thumb: #11813a;
+    --scrollbar-thumb-hover: #0c672f;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-width: 320px;
+    background: #f4f5f1;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: clamp(0.9375rem, 0.9rem + 0.18vw, 1rem);
+    font-weight: 500;
+    line-height: 1.6;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    overflow-wrap: anywhere;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    font-family: var(--font-body);
+    text-wrap: pretty;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  a {
+    touch-action: manipulation;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #11813a 0%, #7ab13a 100%);
+    border: 2px solid var(--scrollbar-track);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0d6c30 0%, #5c8d2f 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .site-eyebrow {
+    font-family: var(--font-poppins);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .site-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 1.25rem + 2.1vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+  }
+
+  .site-copy {
+    font-family: var(--font-body);
+    font-size: clamp(0.9375rem, 0.88rem + 0.2vw, 1.125rem);
+    line-height: 1.8;
+  }
+
+  .site-label {
+    font-family: var(--font-poppins);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .difference-bg {
+    background:
+      linear-gradient(135deg, rgba(17, 129, 58, 0.06), rgba(122, 177, 58, 0.05)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+    isolation: isolate;
+  }
+
+  .difference-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(48, 48, 48, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(48, 48, 48, 0.04) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    opacity: 0.7;
+  }
+
+  .principle-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principle-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(17, 129, 58, 0.09), transparent 52%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .principle-card:hover::after,
+  .principle-card[aria-pressed='true']::after {
+    opacity: 1;
+  }
+
+  .animate-float-slow {
+    animation: floatSlow 9s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: floatSlow 12s ease-in-out infinite reverse;
+  }
+
+  .commitment-card {
+    background: linear-gradient(135deg, rgba(17, 129, 58, 0.04), rgba(122, 177, 58, 0.015));
+    animation: commitmentPulse 4.8s ease-in-out infinite;
+    opacity: 0.95;
+  }
+
+  .commitment-card::before {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% -15%;
+    width: 42%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(17, 129, 58, 0.2) 48%,
+      transparent 100%
+    );
+    transform: translateX(-160%) rotate(18deg);
+    opacity: 0;
+    animation: shimmerSweep 5s ease-in-out infinite;
+  }
+
+  .commitment-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes commitmentPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  45% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .chat-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+  .inbox-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+
+  /* Autofill styling */
+  .autofill-transparent {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: var(--formTextColor) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .autofill-transparent:-webkit-autofill,
+  .autofill-transparent:-webkit-autofill:hover,
+  .autofill-transparent:-webkit-autofill:focus,
+  .autofill-transparent:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: var(--formTextColor) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@font-face {
+  font-family: "Monoglyphic";
+  src:
+    url("../src/fonts/monoglyphic_bold-webfont.woff") format("woff"),
+    url("../src/fonts/monoglyphic_bold-webfont.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monoglyphic-semibold";
+  src:
+    url("../src/fonts/monoglyphic_semibold-webfont.woff") format("woff"),
+    url("../src/fonts/monoglyphic_semibold-webfont.woff2") format("woff2"),
+    url("../src/fonts/monoglyphic_semibold-webfont.woff2") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monoglyphic-regular";
+  src:
+    url("../src/fonts/monoglyphic_regular-webfont.woff") format("woff"),
+    url("../src/fonts/monoglyphic_regular-webfont.woff2") format("woff2"),
+    url("../src/fonts/monoglyphic_regular-webfont.woff2") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monoglyphic-thin";
+  src:
+    url("../src/fonts/monoglyphic_thin-webfont.woff") format("woff"),
+    url("../src/fonts/monoglyphic_thin-webfont.woff2") format("woff2"),
+    url("../src/fonts/monoglyphic_thin-webfont.woff2") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../src/fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PoppinsBold";
+  src: url("../src/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brodaers";
+  src: url("../src/fonts/Brodaers_Expanded_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

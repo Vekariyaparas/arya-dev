@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Quality testing for agricultural products</title>
+  <description id="description">A laboratory flask, crop sample and quality checklist on a green work surface.</description>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dceee0"/>
+      <stop offset="1" stop-color="#a8d1ae"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#d6f0d9" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#background)"/>
+  <circle cx="1000" cy="135" r="170" fill="#f6fbf3" opacity=".55"/>
+  <path d="M0 630c190-95 315-54 490-24 215 37 385-46 710-84v278H0Z" fill="#6eaa72" opacity=".42"/>
+  <path d="M0 704c220-70 376-30 570 8 174 34 371-25 630-74v162H0Z" fill="#2f7546" opacity=".7"/>
+  <g transform="translate(210 130)">
+    <path d="M285 8h145v116l88 146c34 57-7 130-73 130H273c-66 0-107-73-73-130l88-146Z" fill="url(#glass)" stroke="#27633e" stroke-width="10"/>
+    <path d="M214 271c75-34 166 31 294-8l34 57c22 37-5 80-48 80H273c-43 0-70-43-48-80Z" fill="#69b96e"/>
+    <path d="M319 61h78" stroke="#27633e" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="348" cy="242" r="15" fill="#f4f9e9" opacity=".9"/>
+    <circle cx="407" cy="288" r="10" fill="#f4f9e9" opacity=".9"/>
+  </g>
+  <g transform="translate(745 166) rotate(8)">
+    <rect width="230" height="330" rx="14" fill="#fffdf6" stroke="#27633e" stroke-width="8"/>
+    <rect x="32" y="36" width="125" height="18" rx="9" fill="#27633e"/>
+    <rect x="32" y="74" width="166" height="10" rx="5" fill="#b7d5b8"/>
+    <g fill="none" stroke="#27633e" stroke-width="9" stroke-linecap="round">
+      <path d="M38 133l12 12 22-25"/>
+      <path d="M38 194l12 12 22-25"/>
+      <path d="M38 255l12 12 22-25"/>
+    </g>
+    <g fill="#6a9e68">
+      <rect x="88" y="128" width="105" height="11" rx="5"/>
+      <rect x="88" y="189" width="105" height="11" rx="5"/>
+      <rect x="88" y="250" width="105" height="11" rx="5"/>
+    </g>
+  </g>
+  <g transform="translate(90 560)">
+    <path d="M0 70c75-94 140-92 205 0" fill="none" stroke="#f4f9e9" stroke-width="12" stroke-linecap="round"/>
+    <path d="M26 75c10-70 40-103 75-120M90 75c9-77 41-122 79-140M151 75c13-57 36-92 67-112" stroke="#27633e" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="68" cy="-28" rx="38" ry="16" transform="rotate(-44 68 -28)" fill="#f4f9e9"/>
+    <ellipse cx="145" cy="-53" rx="42" ry="17" transform="rotate(-45 145 -53)" fill="#f4f9e9"/>
+    <ellipse cx="205" cy="-29" rx="38" ry="16" transform="rotate(-39 205 -29)" fill="#f4f9e9"/>
+  </g>
+</svg>
