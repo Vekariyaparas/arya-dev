@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://vekariyaparas.github.io/aryadev/",
+  "homepage": "https://vekariyaparas.github.io/arya-dev/",
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"npm:mail\" \"vite\"",
     "start": "concurrently --kill-others-on-fail \"npm:mail\" \"vite\"",
